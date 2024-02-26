@@ -80,9 +80,12 @@ def change_contact(args, contacts):
 def show_phone(args, contacts):
     try:
         name = args[0]
+        if name in contacts:
+            return f"\033[96m{name}'s\x1b[0m phone is: \033[96m{contacts[name]}\x1b[0m"
+        else:
+            return f"Contact \033[96m{name}\x1b[0m does not exist. Check your spelling."
     except:
         return "Wrong arguments count, pls use'\033[96mphone [username]\x1b[0m."
-    return f"\033[96m{name}'s\x1b[0m phone is: \033[96m{contacts[name]}\x1b[0m"
 
 
 def show_all(contacts: dict):
